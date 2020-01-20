@@ -17,7 +17,7 @@ public class ProfesorRestController {
     @Autowired
     private ProfesorServiceImpl profesorService;
 
-    @RequestMapping(value = "/todos_los_profesores", method = RequestMethod.GET)
+    @RequestMapping(value = "/todos_los_profesores_public", method = RequestMethod.GET)
     public ResponseEntity<List<Profesor>> listAllProfesor() {
         List<Profesor> profesores = profesorService.findAllProfesor();
         if (profesores.isEmpty()) {
