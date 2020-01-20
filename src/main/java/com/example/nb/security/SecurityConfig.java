@@ -22,6 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable().authorizeRequests()
                 .antMatchers("todos_los_profesores_public").permitAll()
+                .antMatchers("todos_los_profesores_admin").hasRole("ADMIN")
+                .antMatchers("todos_los_profesores_user").hasRole("USER")
+                .antMatchers("/*/escribirDB/**").hasRole("ADMIN")
                 .and()
                 .httpBasic();
     }

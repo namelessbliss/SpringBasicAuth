@@ -25,4 +25,22 @@ public class ProfesorRestController {
         }
         return new ResponseEntity<List<Profesor>>(profesores, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/todos_los_profesores_admin", method = RequestMethod.GET)
+    public ResponseEntity<List<Profesor>> listAllProfesorAdmin() {
+        List<Profesor> profesores = profesorService.findAllProfesor();
+        if (profesores.isEmpty()) {
+            return new ResponseEntity<List<Profesor>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<Profesor>>(profesores, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/todos_los_profesores_user", method = RequestMethod.GET)
+    public ResponseEntity<List<Profesor>> listAllProfesorUser() {
+        List<Profesor> profesores = profesorService.findAllProfesor();
+        if (profesores.isEmpty()) {
+            return new ResponseEntity<List<Profesor>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<Profesor>>(profesores, HttpStatus.OK);
+    }
 }
